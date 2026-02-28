@@ -14,6 +14,11 @@ cask "aijia" do
 
   app "AI小家.app"
 
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-cr", "#{appdir}/AI小家.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.aijia.app",
     "~/.renlijia",
